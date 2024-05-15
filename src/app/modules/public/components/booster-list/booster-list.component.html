@@ -1,0 +1,20 @@
+<div class="p-4">
+  @if (booster() != [] && !(loadingService.loading$ | async)) {
+    <h1 class="h2">Cards do seu pacote gerado</h1>
+    <a [routerLink]="['/colecoes']" class="badge badge-primary">Voltar</a>
+
+    <div class="row no-gutters mt-5">
+      @for (card of booster(); track card.name) {
+        <div class="col-lg-3 col-md-4 col-sm-6 p-1">
+          <app-booster-card [card]="card"></app-booster-card>
+        </div>
+      }
+    </div>
+
+    @if (loading()) {
+      <div class="d-flex justify-content-center p-2">
+        <span class="">Carregando a(s) cartas restantes...</span>
+      </div>
+    }
+  }
+</div>

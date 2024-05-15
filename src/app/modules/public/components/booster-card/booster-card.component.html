@@ -1,0 +1,11 @@
+<div class="card h-100">
+  <img class="card-img-top" [ngSrc]="card.imageUrl" [alt]='card.name + " Image"' priority width="223" height="311">
+  <div class="card-body">
+    <h5 class="card-title">{{card.name}}</h5>
+    <h6 class="card-title">{{card.manaCost}}</h6>
+    @for (color of card.colors; track $index) {
+      <span class="badge badge-{{color}}">{{color}}</span>
+    }
+    <p class="card-text">{{card.text}}</p>
+  </div>
+</div>
